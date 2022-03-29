@@ -9,4 +9,10 @@ export class HomePage {
 
   constructor() {}
 
+  onLogin(email, password) {
+    console.log('Email', email.value);
+    console.log('Password', password.value);
+    console.log('Validación OK');
+  }
+
 }

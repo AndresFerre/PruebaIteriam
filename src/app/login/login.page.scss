@@ -1,0 +1,85 @@
+ion-content {
+  --background: url('../../assets/background.jpg') 0 0/100% 100% no-repeat !important;
+  background-color: #fff;
+}
+
+ion-item {
+    align-items: center;
+    color: darkgray;
+    font-size: small;
+}
+
+ion-card {
+    margin-top: 2.5rem;
+}
+
+ion-icon {
+    color: darkgray;
+}
+
+.remember {
+    align-items: center;
+    font-weight: 600;
+    color: black;
+}
+
+ion-toggle {
+    align-self: end;
+    position: relative;
+    bottom: 0.5rem;
+}
+
+.image-inside-card {
+    display: none;
+}
+
+.image-outside-card {
+    display: block;
+}
+
+.validation-message {
+    color: #f1453d;
+    display: none;
+}
+
+ion-label.invalid {
+    display: block;
+}
+
+  // Large devices (desktops, 960px and up)
+@media (min-width: 960px) { 
+    .image-inside-card {
+        display: block;
+    }
+
+    .image-outside-card {
+        display: none;
+    }
+
+    .col-header {
+        text-align: center;
+        ion-img {
+            margin-bottom: 1rem;
+        }        
+
+        ion-label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: black;
+            margin-top: 1rem;
+        }
+    }
+
+    ion-item {
+        font-size: medium;
+    }
+
+    .logo-img {
+        text-align: center;
+    }
+
+    .remember {
+        align-items: center;
+        font-weight: 700;
+    }
+}
