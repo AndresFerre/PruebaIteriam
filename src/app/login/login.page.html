@@ -29,12 +29,12 @@
           <ion-card-header class="image-inside-card">
             <ion-grid>
               <ion-row>
-                <ion-col size="4" size-lg="3"></ion-col>
+                <ion-col size="5" size-lg="3"></ion-col>
                 <ion-col class="col-header">
                   <ion-img class="logo-img" src="../../assets/logo.jpg"></ion-img>
-                  <ion-label >Prueba técnica</ion-label>
+                  <ion-label>Prueba técnica</ion-label>
                 </ion-col>
-                <ion-col size="4" size-lg="3"></ion-col>
+                <ion-col size="5" size-lg="3"></ion-col>
               </ion-row>
             </ion-grid>
           </ion-card-header>
@@ -44,12 +44,15 @@
               <ion-icon name="person-outline" slot="start"></ion-icon>
               <ion-input type="email"  formControlName="email" required></ion-input>
             </ion-item>
-            <ion-label class="validation-message" [class.invalid]=true>Test</ion-label>
+            <ion-label *ngIf="!loginForm.controls.email.valid &&
+            loginForm.controls.email.dirty" class="invalidField">El email debe tener valor</ion-label>
             <ion-item lines="full">          
               <ion-label position="floating">Password</ion-label>
               <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
               <ion-input type="password" minlength="5" formControlName="password" required></ion-input>
             </ion-item>
+            <ion-label *ngIf="!loginForm.controls.password.valid &&
+            loginForm.controls.password.dirty" class="invalidField">La contraseña debe tener al menos 5 carácteres</ion-label>
             <ion-item lines="none" class="remember">
               <ion-label position="floating">Recordar</ion-label>
               <ion-toggle color="primary" formControlName="remember"></ion-toggle>

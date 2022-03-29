@@ -37,13 +37,8 @@ ion-toggle {
     display: block;
 }
 
-.validation-message {
+.invalidField {
     color: #f1453d;
-    display: none;
-}
-
-ion-label.invalid {
-    display: block;
 }
 
   // Large devices (desktops, 960px and up)

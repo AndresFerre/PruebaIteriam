@@ -32,13 +32,13 @@ export class LoginPage implements OnInit {
     console.log(this.loginForm.value);
     // Utilizo esta forma de validar ya que en el enunciado dice que se mantenga habilitado en todo momento 
     // el botón de acceder, si no dijera eso utilizaría la aproximación de deshabilitar el botón siempre y cuando no se cumpla la validación del formGroup
-    if(this.loginForm.value.email == '' 
+    if(this.loginForm.value.email == ' ' 
     || this.loginForm.value.email == undefined 
     || this.loginForm.value.email == null) {
       console.log('El email debe tener un valor');    
     }
 
-    if(this.loginForm.value.password == '' 
+    if(this.loginForm.value.password == ' ' 
     || this.loginForm.value.password == undefined 
     || this.loginForm.value.password == null
     ||this.loginForm.value.password.length < 5) {
