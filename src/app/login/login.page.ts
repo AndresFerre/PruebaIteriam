@@ -18,8 +18,15 @@ export class LoginPage implements OnInit {
   public loginForm: FormGroup;
 
   ngOnInit() {
-    this.loginForm = this.formBuilder.group({
-      email: new FormControl('', Validators.required),
+    this.loginForm = this.initLoginForm();
+  }
+
+  initLoginForm(): FormGroup {
+    return this.formBuilder.group({
+      email: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.email
+      ])),
       password: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(5)
@@ -30,19 +37,9 @@ export class LoginPage implements OnInit {
 
   onLogin() {
     console.log(this.loginForm.value);
-    // Utilizo esta forma de validar ya que en el enunciado dice que se mantenga habilitado en todo momento 
-    // el botón de acceder, si no dijera eso utilizaría la aproximación de deshabilitar el botón siempre y cuando no se cumpla la validación del formGroup
-    if(this.loginForm.value.email == ' ' 
-    || this.loginForm.value.email == undefined 
-    || this.loginForm.value.email == null) {
-      console.log('El email debe tener un valor');    
-    }
 
-    if(this.loginForm.value.password == ' ' 
-    || this.loginForm.value.password == undefined 
-    || this.loginForm.value.password == null
-    ||this.loginForm.value.password.length < 5) {
-      console.log('La contraseña debe tener valor y más de 5 dígitos');    
+    if(!this.loginForm.valid){
+      console.log('El formulario tiene errores de validación');
     }
     else
     {
@@ -63,4 +60,28 @@ export class LoginPage implements OnInit {
     const { role, data } = await loading.onDidDismiss();
     console.log('Sesión iniciada!');
   }
+
+  validateEmailField() {
+    return !this.loginForm.controls.email.valid &&
+            this.loginForm.controls.email.dirty
+  }
+
+  validatePasswordField() {
+    return !this.loginForm.controls.password.valid &&
+            this.loginForm.controls.password.dirty
+  }
+
+  //Otra alternativa más escalable sería:
+  /*validateField(field) {
+    switch(field){
+      case 'email':
+        return !this.loginForm.controls.email.valid &&
+            this.loginForm.controls.email.dirty
+      break;
+      case 'password':
+        return !this.loginForm.controls.password.valid &&
+            this.loginForm.controls.password.dirty
+      break;
+    }
+  }*/
 }

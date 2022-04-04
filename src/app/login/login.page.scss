@@ -1,29 +1,29 @@
-ion-content {
+.content {
   --background: url('../../assets/background.jpg') 0 0/100% 100% no-repeat !important;
   background-color: #fff;
 }
 
-ion-item {
+.form-item {
     align-items: center;
     color: darkgray;
     font-size: small;
 }
 
-ion-card {
+.main-card {
     margin-top: 2.5rem;
 }
 
-ion-icon {
+.form-icon {
     color: darkgray;
 }
 
-.remember {
+.remember-field {
     align-items: center;
     font-weight: 600;
     color: black;
 }
 
-ion-toggle {
+.remember-toggle{
     align-self: end;
     position: relative;
     bottom: 0.5rem;
@@ -53,11 +53,11 @@ ion-toggle {
 
     .col-header {
         text-align: center;
-        ion-img {
+        .logo-img {
             margin-bottom: 1rem;
         }        
 
-        ion-label {
+        .logo-subtitle {
             font-weight: 600;
             font-size: 0.9rem;
             color: black;
@@ -65,7 +65,7 @@ ion-toggle {
         }
     }
 
-    ion-item {
+    .form-item {
         font-size: medium;
     }
 

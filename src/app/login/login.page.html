@@ -6,7 +6,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="content">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Prueba técnica Andrés Ferre García</ion-title>
@@ -25,37 +25,35 @@
     <ion-col size-lg="4" size="1"></ion-col>
     <ion-col size-lg="4" size="10">
       <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="login-form">
-        <ion-card routerAnimation>
+        <ion-card class="main-card" routerAnimation>
           <ion-card-header class="image-inside-card">
             <ion-grid>
               <ion-row>
                 <ion-col size="5" size-lg="3"></ion-col>
                 <ion-col class="col-header">
                   <ion-img class="logo-img" src="../../assets/logo.jpg"></ion-img>
-                  <ion-label>Prueba técnica</ion-label>
+                  <ion-label class="logo-subtitle">Prueba técnica</ion-label>
                 </ion-col>
                 <ion-col size="5" size-lg="3"></ion-col>
               </ion-row>
             </ion-grid>
           </ion-card-header>
           <ion-card-content>
-            <ion-item lines="full">
+            <ion-item class="form-item" lines="full">
               <ion-label position="floating">Email</ion-label>
-              <ion-icon name="person-outline" slot="start"></ion-icon>
+              <ion-icon class="form-icon" name="person-outline" slot="start"></ion-icon>
               <ion-input type="email"  formControlName="email" required></ion-input>
             </ion-item>
-            <ion-label *ngIf="!loginForm.controls.email.valid &&
-            loginForm.controls.email.dirty" class="invalidField">El email debe tener valor</ion-label>
-            <ion-item lines="full">          
+            <ion-label *ngIf="validateEmailField()" class="invalidField">El email debe tener un formato válido</ion-label>
+            <ion-item class="form-item" lines="full">          
               <ion-label position="floating">Password</ion-label>
-              <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+              <ion-icon class="form-icon" name="lock-closed-outline" slot="start"></ion-icon>
               <ion-input type="password" minlength="5" formControlName="password" required></ion-input>
             </ion-item>
-            <ion-label *ngIf="!loginForm.controls.password.valid &&
-            loginForm.controls.password.dirty" class="invalidField">La contraseña debe tener al menos 5 carácteres</ion-label>
-            <ion-item lines="none" class="remember">
+            <ion-label *ngIf="validatePasswordField()" class="invalidField">La contraseña debe tener al menos 5 carácteres</ion-label>
+            <ion-item lines="none" class="remember-field">
               <ion-label position="floating">Recordar</ion-label>
-              <ion-toggle color="primary" formControlName="remember"></ion-toggle>
+              <ion-toggle class="remember-toggle" color="primary" formControlName="remember"></ion-toggle>
             </ion-item>
             <ion-button type="submit" color="primary" expand="block">Acceder</ion-button>
           </ion-card-content>
